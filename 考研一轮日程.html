@@ -6,7 +6,7 @@
 <meta name="referrer" content="no-referrer">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src 'unsafe-inline' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <title>考研一轮学习日程</title>
-<style>:root{color-scheme:light dark;background:light-dark(rgb(255 255 255),rgb(24 24 24))}html,body{margin:0;min-height:100%}body{box-sizing:border-box;padding:1rem;background:inherit}iframe{display:block;width:100%;max-width:1120px;height:calc(100dvh - 2rem);min-height:640px;margin:0 auto;border:0}@media(max-width:600px){body{padding:.5rem}iframe{height:calc(100dvh - 1rem);min-height:560px}}</style>
+<style>:root{color-scheme:light dark;background:light-dark(rgb(255 255 255),rgb(24 24 24))}html,body{margin:0;min-height:100%}body{box-sizing:border-box;padding:max(1rem,env(safe-area-inset-top)) max(1rem,env(safe-area-inset-right)) max(1rem,env(safe-area-inset-bottom)) max(1rem,env(safe-area-inset-left));background:inherit}iframe{display:block;width:100%;max-width:1120px;height:calc(100dvh - 2rem);min-height:640px;margin:0 auto;border:0}@media(max-width:600px){body{padding:max(.5rem,env(safe-area-inset-top)) max(.5rem,env(safe-area-inset-right)) max(.5rem,env(safe-area-inset-bottom)) max(.5rem,env(safe-area-inset-left))}iframe{height:calc(100dvh - 1rem);min-height:560px}}</style>
 </head>
 <body>
 <iframe sandbox="allow-scripts allow-same-origin" referrerpolicy="no-referrer" title="考研一轮学习日程" srcdoc="&lt;!doctype html&gt;
@@ -841,14 +841,15 @@ html&gt;body{padding:0}&lt;/style&gt;
 
       &lt;section class=&quot;app-view&quot; id=&quot;view-today&quot;&gt;
         &lt;div class=&quot;day-toolbar&quot;&gt;
-          &lt;div&gt;&lt;p class=&quot;eyebrow&quot; id=&quot;today-kicker&quot;&gt;TODAY · 今日清单&lt;/p&gt;&lt;h2 id=&quot;today-heading&quot;&gt;今日执行&lt;/h2&gt;&lt;p class=&quot;text-muted&quot; id=&quot;today-meta&quot;&gt;&lt;/p&gt;&lt;/div&gt;
-          &lt;label class=&quot;form-check form-switch&quot;&gt;&lt;input class=&quot;form-check-input&quot; type=&quot;checkbox&quot; id=&quot;actual-rest&quot;&gt;&lt;span class=&quot;form-check-label&quot;&gt;今天实际休息&lt;/span&gt;&lt;/label&gt;
+          &lt;h2 id=&quot;today-heading&quot;&gt;今日执行&lt;/h2&gt;
+          &lt;label class=&quot;form-check form-switch rest-toggle&quot;&gt;&lt;input class=&quot;form-check-input&quot; type=&quot;checkbox&quot; id=&quot;actual-rest&quot;&gt;&lt;span class=&quot;form-check-label&quot;&gt;这一天实际休息&lt;/span&gt;&lt;/label&gt;
+          &lt;div class=&quot;viz-row day-nav&quot; aria-label=&quot;日期切换&quot;&gt;
+            &lt;button class=&quot;btn btn-ghost&quot; type=&quot;button&quot; id=&quot;prev-day&quot;&gt;上一天&lt;/button&gt;
+            &lt;button class=&quot;btn&quot; type=&quot;button&quot; id=&quot;go-today&quot;&gt;回到今天&lt;/button&gt;
+            &lt;button class=&quot;btn btn-ghost&quot; type=&quot;button&quot; id=&quot;next-day&quot;&gt;下一天&lt;/button&gt;
+          &lt;/div&gt;
         &lt;/div&gt;
-        &lt;div class=&quot;viz-row day-nav&quot;&gt;
-          &lt;button class=&quot;btn btn-ghost&quot; type=&quot;button&quot; id=&quot;prev-day&quot;&gt;上一天&lt;/button&gt;
-          &lt;button class=&quot;btn&quot; type=&quot;button&quot; id=&quot;go-today&quot;&gt;回到今天&lt;/button&gt;
-          &lt;button class=&quot;btn btn-ghost&quot; type=&quot;button&quot; id=&quot;next-day&quot;&gt;下一天&lt;/button&gt;
-        &lt;/div&gt;
+        &lt;p class=&quot;text-muted today-meta&quot; id=&quot;today-meta&quot;&gt;&lt;/p&gt;
         &lt;div class=&quot;viz-grid home-stats&quot; aria-label=&quot;首页学习数据&quot;&gt;
           &lt;div class=&quot;card home-stat&quot;&gt;&lt;span&gt;今日待完成&lt;/span&gt;&lt;strong id=&quot;home-task-count&quot;&gt;0 项&lt;/strong&gt;&lt;small&gt;包含顺延任务&lt;/small&gt;&lt;/div&gt;
           &lt;div class=&quot;card home-stat&quot;&gt;&lt;span&gt;顺延积压&lt;/span&gt;&lt;strong id=&quot;home-carry-count&quot;&gt;0 项&lt;/strong&gt;&lt;small&gt;来自此前日期&lt;/small&gt;&lt;/div&gt;
@@ -918,10 +919,12 @@ html&gt;body{padding:0}&lt;/style&gt;
 #kaoyan-plan .progress-track span{display:block;width:0;height:100%;background:var(--primary);transition:width .2s ease}
 #kaoyan-plan .app-view{padding-top:26px}
 #kaoyan-plan .hidden{display:none!important}
-#kaoyan-plan .day-toolbar{display:flex;justify-content:space-between;align-items:flex-start;gap:20px}
-#kaoyan-plan .day-toolbar p{margin:5px 0 0}
-#kaoyan-plan .day-nav{justify-content:flex-start;margin:16px 0 22px}
-#kaoyan-plan .home-stats{margin-bottom:18px}
+#kaoyan-plan .day-toolbar{display:flex;align-items:center;gap:12px;min-width:0}
+#kaoyan-plan .day-toolbar h2{margin-right:auto;white-space:nowrap}
+#kaoyan-plan .rest-toggle{flex:0 0 auto;white-space:nowrap}
+#kaoyan-plan .today-meta{margin:7px 0 18px}
+#kaoyan-plan .day-nav{flex:0 0 auto;justify-content:flex-start;gap:6px;margin:0}
+#kaoyan-plan .home-stats{grid-template-columns:repeat(3,minmax(0,1fr));margin-bottom:18px}
 #kaoyan-plan .home-stat{display:flex;flex-direction:column;gap:5px;min-height:88px}
 #kaoyan-plan .home-stat strong{font-size:22px;font-weight:500}
 #kaoyan-plan .home-stat small{color:var(--muted-foreground)}
@@ -975,8 +978,8 @@ html&gt;body{padding:0}&lt;/style&gt;
 #kaoyan-plan .subject-bar span{display:block;height:100%;background:var(--primary)}
 #kaoyan-plan .subject-row small{text-align:right;color:var(--muted-foreground);font-variant-numeric:tabular-nums}
 #kaoyan-plan .footnote{margin:28px 0 0;padding-top:16px;border-top:1px solid var(--border);color:var(--muted-foreground)}
-@media(max-width:760px){#kaoyan-plan .app-shell{grid-template-columns:1fr;border-radius:16px}#kaoyan-plan .sidebar{display:block;padding:12px;border-right:0;border-bottom:1px solid var(--border)}#kaoyan-plan .brand{padding:0 4px 10px}#kaoyan-plan .nav-list{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}#kaoyan-plan .nav-btn{grid-template-columns:1fr;min-height:44px;padding:10px 6px;text-align:center}#kaoyan-plan .nav-btn span{display:none}#kaoyan-plan .course-order,#kaoyan-plan .sidebar-foot{display:none}#kaoyan-plan .workspace{padding:20px 14px}#kaoyan-plan .workspace-head{gap:16px}#kaoyan-plan .overall{min-width:130px}#kaoyan-plan .day-toolbar{flex-direction:column;align-items:stretch}#kaoyan-plan .day-nav{display:grid;grid-template-columns:1fr 1fr;gap:8px}#kaoyan-plan .day-nav .btn{min-height:44px}#kaoyan-plan #go-today{grid-column:1/3}#kaoyan-plan .check-task{grid-template-columns:auto 1fr auto;padding:14px 2px;column-gap:9px}#kaoyan-plan .check-task input{width:20px;height:20px}#kaoyan-plan .check-subject{grid-column:2}#kaoyan-plan .check-title{grid-column:2/4;line-height:1.55}#kaoyan-plan .view-intro{align-items:flex-start;flex-direction:column;gap:4px}#kaoyan-plan .phase,#kaoyan-plan .day{grid-template-columns:1fr;gap:8px}#kaoyan-plan .task{grid-template-columns:72px minmax(0,1fr);padding:3px 0 3px 10px}#kaoyan-plan .task .duration{grid-column:2}#kaoyan-plan .controls .form-label{min-width:calc(50% - 8px)}}
-@media(max-width:520px){#kaoyan-plan .home-stats,#kaoyan-plan .progress-stats{grid-template-columns:1fr}#kaoyan-plan .viz-stat{min-height:auto}#kaoyan-plan .timecode{display:block;margin:4px 0 0}#kaoyan-plan .check-duration{align-self:start}#kaoyan-plan .controls{display:grid;grid-template-columns:1fr}#kaoyan-plan .controls .form-label{min-width:0;width:100%}}
+@media(max-width:760px){#kaoyan-plan .app-shell{grid-template-columns:1fr;border-radius:16px}#kaoyan-plan .sidebar{display:block;padding:12px;border-right:0;border-bottom:1px solid var(--border)}#kaoyan-plan .brand{padding:0 4px 10px}#kaoyan-plan .nav-list{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}#kaoyan-plan .nav-btn{grid-template-columns:1fr;min-height:44px;padding:10px 6px;text-align:center}#kaoyan-plan .nav-btn span{display:none}#kaoyan-plan .course-order,#kaoyan-plan .sidebar-foot{display:none}#kaoyan-plan .workspace{padding:20px 14px}#kaoyan-plan .workspace-head{gap:16px}#kaoyan-plan .overall{min-width:130px}#kaoyan-plan .day-toolbar{gap:7px}#kaoyan-plan .day-toolbar h2{font-size:18px}#kaoyan-plan .day-nav{display:flex;gap:4px}#kaoyan-plan .day-nav .btn{min-height:36px;padding:7px 8px}#kaoyan-plan .rest-toggle{gap:4px}#kaoyan-plan .check-task{grid-template-columns:auto 1fr auto;padding:14px 2px;column-gap:9px}#kaoyan-plan .check-task input{width:20px;height:20px}#kaoyan-plan .check-subject{grid-column:2}#kaoyan-plan .check-title{grid-column:2/4;line-height:1.55}#kaoyan-plan .view-intro{align-items:flex-start;flex-direction:column;gap:4px}#kaoyan-plan .phase,#kaoyan-plan .day{grid-template-columns:1fr;gap:8px}#kaoyan-plan .task{grid-template-columns:72px minmax(0,1fr);padding:3px 0 3px 10px}#kaoyan-plan .task .duration{grid-column:2}#kaoyan-plan .controls .form-label{min-width:calc(50% - 8px)}}
+@media(max-width:520px){#kaoyan-plan .day-toolbar{gap:4px}#kaoyan-plan .day-toolbar h2{font-size:16px}#kaoyan-plan .rest-toggle{font-size:11px}#kaoyan-plan .rest-toggle .form-check-label{max-width:48px;white-space:normal;line-height:1.15}#kaoyan-plan .day-nav .btn{min-height:34px;padding:6px 5px;font-size:11px;white-space:nowrap}#kaoyan-plan .home-stats{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}#kaoyan-plan .home-stat{min-height:70px;padding:10px 7px;gap:3px}#kaoyan-plan .home-stat&gt;span{font-size:11px;white-space:nowrap}#kaoyan-plan .home-stat strong{font-size:17px;white-space:nowrap}#kaoyan-plan .home-stat small{display:none}#kaoyan-plan .progress-stats{grid-template-columns:1fr}#kaoyan-plan .viz-stat{min-height:auto}#kaoyan-plan .timecode{display:block;margin:4px 0 0}#kaoyan-plan .check-duration{align-self:start}#kaoyan-plan .controls{display:grid;grid-template-columns:1fr}#kaoyan-plan .controls .form-label{min-width:0;width:100%}}
 @media(max-width:440px){#kaoyan-plan .workspace{padding:18px 12px}#kaoyan-plan .workspace-head{flex-direction:column}#kaoyan-plan .workspace-head h1{font-size:24px}#kaoyan-plan .overall{width:100%}#kaoyan-plan .overall&gt;span{text-align:left}#kaoyan-plan .next-focus{grid-template-columns:1fr;gap:7px}#kaoyan-plan .task-heading{align-items:flex-start;flex-direction:column;gap:2px}#kaoyan-plan .subject-row{grid-template-columns:1fr 56px}#kaoyan-plan .subject-bar{grid-column:1/3;grid-row:2}#kaoyan-plan .carry{display:block;width:max-content;margin:0 0 5px}}
 @media(prefers-reduced-motion:reduce){#kaoyan-plan .progress-track span{transition:none}}
 &lt;/style&gt;
@@ -1036,11 +1039,9 @@ function renderToday(){
   root.querySelector(&#x27;#home-task-count&#x27;).textContent=`${pendingTasks.length} 项`;
   root.querySelector(&#x27;#home-carry-count&#x27;).textContent=`${carryCount} 项`;
   root.querySelector(&#x27;#home-minutes&#x27;).textContent=fmt(pendingTasks.reduce((sum,x)=&gt;sum+x.t.duration,0));
-  root.querySelector(&#x27;#today-kicker&#x27;).textContent=actualToday?&#x27;TODAY · 今日清单&#x27;:now&lt;startDay?&#x27;DAY 1 PREVIEW · 明日预览&#x27;:&#x27;SELECTED DAY · 日期回看&#x27;;
   root.querySelector(&#x27;#today-heading&#x27;).textContent=dayLabel(d);
   root.querySelector(&#x27;#today-meta&#x27;).textContent=`${weekday[d.date.getDay()]} · ${d.rest?&#x27;计划全天休息&#x27;:d.eveningOff?&#x27;晚间休息&#x27;:&#x27;正常学习日&#x27;}${carryCount?` · 顺延 ${carryCount} 项`:&#x27;&#x27;}`;
   root.querySelector(&#x27;#actual-rest&#x27;).checked=rested;
-  root.querySelector(&#x27;.day-toolbar .form-check-label&#x27;).textContent=actualToday?&#x27;今天实际休息&#x27;:&#x27;这一天实际休息&#x27;;
   let html=&#x27;&#x27;;
   if(d.rest) html=&#x27;&lt;div class=&quot;rest-message&quot;&gt;计划全天休息。可以勾选上方开关，留下实际休息记录。&lt;/div&gt;&#x27;;
   else if(rested) html=&#x27;&lt;div class=&quot;rest-message&quot;&gt;已记录为实际休息日。原定内容未被算作完成，会自动顺延。&lt;/div&gt;&#x27;;
