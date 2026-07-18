@@ -1035,7 +1035,7 @@ const navButtons=[...root.querySelectorAll(&#x27;[data-view]&#x27;)];
 const appViews=[...root.querySelectorAll(&#x27;.app-view&#x27;)];
 
 function renderStats(){
-  const donePlannedMinutes=plannedVideoTasks.filter(x=&gt;state.completed[x.t.id]).reduce((sum,x)=&gt;sum+x.t.duration,0),totalMinutes=historyMinutes+plannedMinutes,doneMinutes=historyMinutes+donePlannedMinutes,rawRate=doneMinutes/totalMinutes*100,rate=rawRate&gt;0&amp;&amp;rawRate&lt;10?rawRate.toFixed(1):Math.round(rawRate),next=nextPending();
+  const donePlannedMinutes=plannedVideoTasks.filter(x=&gt;state.completed[x.t.id]).reduce((sum,x)=&gt;sum+x.t.duration,0),totalMinutes=historyMinutes+plannedMinutes,doneMinutes=historyMinutes+donePlannedMinutes,rawRate=doneMinutes/totalMinutes*100,rate=rawRate.toFixed(2),next=nextPending();
   elements[&#x27;done-rate&#x27;].textContent=`${rate}%`;
   elements[&#x27;done-detail&#x27;].textContent=`${fmt(doneMinutes)} / ${fmt(totalMinutes)}`;
   elements[&#x27;progress-fill&#x27;].style.width=`${rate}%`;
