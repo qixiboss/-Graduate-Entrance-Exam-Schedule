@@ -856,7 +856,7 @@ html&gt;body{padding:0}&lt;/style&gt;
           &lt;div class=&quot;card home-stat&quot;&gt;&lt;span&gt;预计学习时长&lt;/span&gt;&lt;strong id=&quot;home-minutes&quot;&gt;0m&lt;/strong&gt;&lt;small&gt;按未完成视频累计&lt;/small&gt;&lt;/div&gt;
         &lt;/div&gt;
         &lt;div class=&quot;card next-focus&quot;&gt;&lt;span&gt;当前下一步&lt;/span&gt;&lt;div id=&quot;next-line&quot; aria-live=&quot;polite&quot;&gt;&lt;/div&gt;&lt;/div&gt;
-        &lt;div class=&quot;task-heading&quot;&gt;&lt;strong&gt;待完成任务&lt;/strong&gt;&lt;span&gt;未勾选内容会自动顺延&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;task-heading&quot;&gt;&lt;strong&gt;今日任务队列&lt;/strong&gt;&lt;span&gt;完成后自动移至队尾&lt;/span&gt;&lt;/div&gt;
         &lt;div class=&quot;today-tasks&quot; id=&quot;today-tasks&quot;&gt;&lt;/div&gt;
       &lt;/section&gt;
 
@@ -934,8 +934,9 @@ html&gt;body{padding:0}&lt;/style&gt;
 #kaoyan-plan .task-heading strong{font-weight:500}
 #kaoyan-plan .task-heading span{color:var(--muted-foreground)}
 #kaoyan-plan .today-tasks{display:grid}
-#kaoyan-plan .check-task{display:grid;grid-template-columns:auto 76px minmax(0,1fr) auto;gap:12px;align-items:start;padding:14px 2px;border-top:1px solid var(--border)}
+#kaoyan-plan .check-task{position:relative;display:grid;grid-template-columns:auto 76px minmax(0,1fr) auto;gap:12px;align-items:start;padding:14px 2px;border-top:1px solid var(--border);transform-origin:center;will-change:transform}
 #kaoyan-plan .check-task input{margin-top:3px;accent-color:var(--primary)}
+#kaoyan-plan .check-task.done{opacity:.68}
 #kaoyan-plan .check-task.done .check-title{text-decoration:line-through;color:var(--muted-foreground)}
 #kaoyan-plan .check-subject{font-weight:500}
 #kaoyan-plan .check-duration{color:var(--muted-foreground);white-space:nowrap;font-variant-numeric:tabular-nums}
@@ -979,7 +980,7 @@ html&gt;body{padding:0}&lt;/style&gt;
 @media(max-width:760px){#kaoyan-plan .app-shell{grid-template-columns:1fr;border-radius:16px}#kaoyan-plan .sidebar{display:block;padding:12px;border-right:0;border-bottom:1px solid var(--border)}#kaoyan-plan .brand{padding:0 4px 10px}#kaoyan-plan .nav-list{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}#kaoyan-plan .nav-btn{grid-template-columns:1fr;min-height:44px;padding:10px 6px;text-align:center}#kaoyan-plan .nav-btn span{display:none}#kaoyan-plan .course-order,#kaoyan-plan .sidebar-foot{display:none}#kaoyan-plan .workspace{padding:20px 14px}#kaoyan-plan .workspace-head{gap:16px}#kaoyan-plan .overall{min-width:130px}#kaoyan-plan .day-toolbar{gap:7px}#kaoyan-plan .day-toolbar h2{font-size:18px}#kaoyan-plan .day-nav{display:flex;gap:4px}#kaoyan-plan .day-nav .btn{min-height:36px;padding:7px 8px}#kaoyan-plan .rest-toggle{gap:4px}#kaoyan-plan .check-task{grid-template-columns:auto 1fr auto;padding:14px 2px;column-gap:9px}#kaoyan-plan .check-task input{width:20px;height:20px}#kaoyan-plan .check-subject{grid-column:2}#kaoyan-plan .check-title{grid-column:2/4;line-height:1.55}#kaoyan-plan .view-intro{align-items:flex-start;flex-direction:column;gap:4px}#kaoyan-plan .phase,#kaoyan-plan .day{grid-template-columns:1fr;gap:8px}#kaoyan-plan .task{grid-template-columns:72px minmax(0,1fr);padding:3px 0 3px 10px}#kaoyan-plan .task .duration{grid-column:2}#kaoyan-plan .controls .form-label{min-width:calc(50% - 8px)}}
 @media(max-width:520px){#kaoyan-plan .day-toolbar{gap:4px}#kaoyan-plan .day-toolbar h2{font-size:16px}#kaoyan-plan .rest-toggle{font-size:11px}#kaoyan-plan .rest-toggle .form-check-label{max-width:48px;white-space:normal;line-height:1.15}#kaoyan-plan .day-nav .btn{min-height:34px;padding:6px 5px;font-size:11px;white-space:nowrap}#kaoyan-plan .home-stats{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}#kaoyan-plan .home-stat{min-height:70px;padding:10px 7px;gap:3px}#kaoyan-plan .home-stat&gt;span{font-size:11px;white-space:nowrap}#kaoyan-plan .home-stat strong{font-size:17px;white-space:nowrap}#kaoyan-plan .home-stat small{display:none}#kaoyan-plan .progress-stats{grid-template-columns:1fr}#kaoyan-plan .viz-stat{min-height:auto}#kaoyan-plan .timecode{display:block;margin:4px 0 0}#kaoyan-plan .check-duration{align-self:start}#kaoyan-plan .controls{display:grid;grid-template-columns:1fr}#kaoyan-plan .controls .form-label{min-width:0;width:100%}}
 @media(max-width:440px){#kaoyan-plan .workspace{padding:18px 12px}#kaoyan-plan .workspace-head{flex-direction:column}#kaoyan-plan .workspace-head h1{font-size:24px}#kaoyan-plan .overall{width:100%}#kaoyan-plan .overall&gt;span{text-align:left}#kaoyan-plan .next-focus{grid-template-columns:1fr;gap:7px}#kaoyan-plan .task-heading{align-items:flex-start;flex-direction:column;gap:2px}#kaoyan-plan .subject-row{grid-template-columns:1fr 56px}#kaoyan-plan .subject-bar{grid-column:1/3;grid-row:2}#kaoyan-plan .carry{display:block;width:max-content;margin:0 0 5px}}
-@media(prefers-reduced-motion:reduce){#kaoyan-plan .progress-track span{transition:none}}
+@media(prefers-reduced-motion:reduce){#kaoyan-plan .progress-track span{transition:none}#kaoyan-plan .check-task{will-change:auto}}
 &lt;/style&gt;
 
 &lt;script&gt;
@@ -1047,7 +1048,7 @@ function renderStats(){
 
 function renderToday(){
   const d=days[selected],rested=!!state.rested[d.i];
-  const viewTasks=allTasks.filter(x=&gt;x.d.i===d.i||(x.d.i&lt;d.i&amp;&amp;!state.completed[x.t.id]));
+  const viewTasks=allTasks.filter(x=&gt;x.d.i===d.i||(x.d.i&lt;d.i&amp;&amp;!state.completed[x.t.id])).sort((a,b)=&gt;{const aDone=!!state.completed[a.t.id],bDone=!!state.completed[b.t.id];if(aDone!==bDone)return aDone?1:-1;if(aDone&amp;&amp;bDone){const aTime=Number(state.completed[a.t.id]),bTime=Number(state.completed[b.t.id]);if(aTime!==bTime)return aTime-bTime}return 0});
   const carryCount=viewTasks.filter(x=&gt;x.d.i&lt;d.i).length;
   const pendingTasks=viewTasks.filter(x=&gt;!state.completed[x.t.id]);
   elements[&#x27;home-task-count&#x27;].textContent=`${pendingTasks.length} 项`;
@@ -1060,7 +1061,7 @@ function renderToday(){
   if(d.rest) html=&#x27;&lt;div class=&quot;rest-message&quot;&gt;计划全天休息。可以勾选上方开关，留下实际休息记录。&lt;/div&gt;&#x27;;
   else if(rested) html=&#x27;&lt;div class=&quot;rest-message&quot;&gt;已记录为实际休息日。原定内容未被算作完成，会自动顺延。&lt;/div&gt;&#x27;;
   else if(!viewTasks.length) html=&#x27;&lt;div class=&quot;rest-message&quot;&gt;截至这一天没有待完成任务。&lt;/div&gt;&#x27;;
-  else viewTasks.forEach(({d:origin,t})=&gt;{const done=!!state.completed[t.id],late=origin.i&lt;d.i,lateDays=d.i-origin.i,code=range(t);html+=`&lt;label class=&quot;check-task ${done?&#x27;done&#x27;:&#x27;&#x27;}&quot;&gt;&lt;input type=&quot;checkbox&quot; data-task-id=&quot;${t.id}&quot; ${done?&#x27;checked&#x27;:&#x27;&#x27;}&gt;&lt;span class=&quot;check-subject&quot;&gt;${names[t.subject]}&lt;/span&gt;&lt;span class=&quot;check-title&quot;&gt;${late?`&lt;span class=&quot;carry&quot;&gt;顺延 ${lateDays} 天&lt;/span&gt;`:&#x27;&#x27;}${t.title}${code?`&lt;span class=&quot;timecode&quot;&gt;${code}&lt;/span&gt;`:&#x27;&#x27;}&lt;/span&gt;&lt;span class=&quot;check-duration&quot;&gt;${fmt(t.duration)}&lt;/span&gt;&lt;/label&gt;`});
+  else viewTasks.forEach(({d:origin,t})=&gt;{const done=!!state.completed[t.id],late=origin.i&lt;d.i,lateDays=d.i-origin.i,code=range(t);html+=`&lt;label class=&quot;check-task ${done?&#x27;done&#x27;:&#x27;&#x27;}&quot; data-task-row-id=&quot;${t.id}&quot;&gt;&lt;input type=&quot;checkbox&quot; data-task-id=&quot;${t.id}&quot; ${done?&#x27;checked&#x27;:&#x27;&#x27;}&gt;&lt;span class=&quot;check-subject&quot;&gt;${names[t.subject]}&lt;/span&gt;&lt;span class=&quot;check-title&quot;&gt;${late?`&lt;span class=&quot;carry&quot;&gt;顺延 ${lateDays} 天&lt;/span&gt;`:&#x27;&#x27;}${t.title}${code?`&lt;span class=&quot;timecode&quot;&gt;${code}&lt;/span&gt;`:&#x27;&#x27;}&lt;/span&gt;&lt;span class=&quot;check-duration&quot;&gt;${fmt(t.duration)}&lt;/span&gt;&lt;/label&gt;`});
   elements[&#x27;today-tasks&#x27;].innerHTML=html;
   const next=nextPending();
   if(!next) elements[&#x27;next-line&#x27;].innerHTML=&#x27;&lt;strong&gt;下一步：&lt;/strong&gt;一轮任务已全部完成。&#x27;;
@@ -1075,7 +1076,12 @@ function renderTimeline(){
   visible.forEach(d=&gt;{if(pf!==&#x27;all&#x27;&amp;&amp;String(d.phase)!==pf)return;if(d.rest&amp;&amp;hide)return;const tasks=d.tasks.filter(t=&gt;sf===&#x27;all&#x27;||t.subject===sf||t.subject===&#x27;review&#x27;);if(!d.rest&amp;&amp;!tasks.length)return;if(d.phase!==last){const p=phases[d.phase];html+=`&lt;div class=&quot;phase&quot;&gt;&lt;h2&gt;${p[0]}&lt;/h2&gt;&lt;p&gt;${p[1]}&lt;/p&gt;&lt;/div&gt;`;last=d.phase}const md=`${d.date.getMonth()+1}月${d.date.getDate()}日`,rested=!!state.rested[d.i];html+=`&lt;article class=&quot;day&quot;&gt;&lt;div class=&quot;date&quot;&gt;&lt;strong&gt;Day ${d.i} · ${md}&lt;/strong&gt;&lt;span class=&quot;dayno text-small&quot;&gt;${weekday[d.date.getDay()]}${d.eveningOff?&#x27; · 晚间休息&#x27;:&#x27;&#x27;}${rested?&#x27; · 已记休息&#x27;:&#x27;&#x27;}&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;tasks&quot;&gt;`;if(d.rest)html+=`&lt;div class=&quot;rest&quot;&gt;全天休息${rested?&#x27; · 已记录&#x27;:&#x27;&#x27;}&lt;/div&gt;`;else tasks.forEach(t=&gt;{const code=range(t);html+=`&lt;div class=&quot;task ${t.subject} ${state.completed[t.id]?&#x27;done&#x27;:&#x27;&#x27;}&quot;&gt;&lt;span class=&quot;label&quot;&gt;${names[t.subject]}&lt;/span&gt;&lt;span&gt;${state.completed[t.id]?&#x27;✓ &#x27;:&#x27;&#x27;}${t.title}${code?`&lt;span class=&quot;timecode&quot;&gt;${code}&lt;/span&gt;`:&#x27;&#x27;}&lt;/span&gt;&lt;span class=&quot;duration&quot;&gt;${fmt(t.duration)}&lt;/span&gt;&lt;/div&gt;`});html+=`&lt;/div&gt;&lt;/article&gt;`});elements.timeline.innerHTML=html;
 }
 function renderAll(){renderStats();renderToday()}
-elements[&#x27;today-tasks&#x27;].addEventListener(&#x27;change&#x27;,e=&gt;{const id=e.target.dataset.taskId;if(!id)return;state.completed[id]=e.target.checked;if(!e.target.checked)delete state.completed[id];save();renderAll()});
+const taskPositions=()=&gt;new Map([...elements[&#x27;today-tasks&#x27;].querySelectorAll(&#x27;[data-task-row-id]&#x27;)].map(el=&gt;[el.dataset.taskRowId,el.getBoundingClientRect()]));
+function animateTaskQueue(previous,movedId){
+  if(matchMedia(&#x27;(prefers-reduced-motion: reduce)&#x27;).matches)return;
+  requestAnimationFrame(()=&gt;elements[&#x27;today-tasks&#x27;].querySelectorAll(&#x27;[data-task-row-id]&#x27;).forEach(el=&gt;{const before=previous.get(el.dataset.taskRowId);if(!before)return;const after=el.getBoundingClientRect(),dx=before.left-after.left,dy=before.top-after.top;if(Math.abs(dx)&lt;1&amp;&amp;Math.abs(dy)&lt;1)return;const moved=el.dataset.taskRowId===movedId;el.style.zIndex=moved?&#x27;2&#x27;:&#x27;1&#x27;;const animation=el.animate([{transform:`translate(${dx}px, ${dy}px) scale(${moved?0.985:1})`,opacity:moved?.76:1},{transform:&#x27;translate(0, 0) scale(1)&#x27;,opacity:1}],{duration:moved?480:380,easing:&#x27;cubic-bezier(.22, 1, .36, 1)&#x27;});animation.onfinish=()=&gt;{el.style.zIndex=&#x27;&#x27;}}));
+}
+elements[&#x27;today-tasks&#x27;].addEventListener(&#x27;change&#x27;,e=&gt;{const id=e.target.dataset.taskId;if(!id)return;const previous=taskPositions();if(e.target.checked)state.completed[id]=Date.now();else delete state.completed[id];save();renderAll();animateTaskQueue(previous,id)});
 elements[&#x27;actual-rest&#x27;].addEventListener(&#x27;change&#x27;,e=&gt;{const d=days[selected];state.rested[d.i]=e.target.checked;if(!e.target.checked)delete state.rested[d.i];save();renderAll()});
 elements[&#x27;prev-day&#x27;].addEventListener(&#x27;click&#x27;,()=&gt;{selected=Math.max(0,selected-1);renderToday()});
 elements[&#x27;next-day&#x27;].addEventListener(&#x27;click&#x27;,()=&gt;{selected=Math.min(lastDayIndex,selected+1);renderToday()});
