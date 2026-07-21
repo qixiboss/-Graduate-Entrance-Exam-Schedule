@@ -53,7 +53,6 @@
   --viz-series-3: light-dark(rgb(93 201 119), rgb(116 213 139));
   --viz-series-4: light-dark(rgb(235 119 177), rgb(240 143 192));
   --viz-series-5: light-dark(rgb(155 121 236), rgb(170 145 239));
-  --viz-series-6: light-dark(rgb(58 185 177), rgb(90 203 194));
 
   /* Internal implementation variables; not part of the agent contract. */
   --font-sans: -apple-system, system-ui, &quot;Segoe UI&quot;, sans-serif;
@@ -165,8 +164,7 @@ h6 {
 }
 
 b,
-strong,
-th {
+strong {
   font-weight: var(--font-weight-medium);
 }
 
@@ -335,39 +333,8 @@ small,
   -webkit-font-smoothing: antialiased;
 }
 
-.btn:is(.btn-block, .viz-tile) {
-  inline-size: 100%;
-}
-
-.btn.viz-tile {
-  min-width: 0;
-  overflow-wrap: anywhere;
-  white-space: normal;
-}
-
-a.btn {
-  cursor: pointer;
-  text-decoration: none;
-}
-
 .btn:not(:disabled):hover {
   background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
-}
-
-.btn-primary {
-  border-color: transparent;
-  color: var(--primary-foreground);
-  background: var(--foreground);
-  background-clip: padding-box;
-}
-
-.btn-primary .text-muted {
-  color: color-mix(in srgb, var(--primary-foreground) 50%, transparent);
-}
-
-.btn-primary:not(:disabled):hover {
-  background: color-mix(in srgb, var(--foreground) 80%, transparent);
-  background-clip: padding-box;
 }
 
 .btn-ghost {
@@ -572,7 +539,7 @@ a.btn {
   box-shadow: 0 0 0 2px var(--ring);
 }
 
-.btn:not(.btn-primary, .viz-tile):is(
+.btn:not(.btn-primary):is(
     [aria-pressed=&quot;true&quot;],
     [aria-selected=&quot;true&quot;],
     .is-selected
@@ -580,11 +547,6 @@ a.btn {
   border-color: var(--primary);
   color: var(--primary-foreground);
   background: var(--primary);
-}
-
-.btn.viz-tile:is([aria-pressed=&quot;true&quot;], [aria-selected=&quot;true&quot;], .is-selected) {
-  border-color: var(--primary);
-  box-shadow: inset 0 0 0 1px var(--primary);
 }
 
 .btn:focus-visible {
@@ -881,8 +843,8 @@ renderAll();
 })();
 &lt;/script&gt;
 
-&lt;script defer src=&quot;https://unpkg.com/@floating-ui/core@1.7.3/dist/floating-ui.core.umd.min.js&quot; integrity=&quot;sha384-Q/yMW/r6UZIOlJwJHZcWjbXbicukfsuiwED9BVSZgUZgCxFuI1TOIYZbTZ9rWGLA&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
-&lt;script defer src=&quot;https://unpkg.com/@floating-ui/dom@1.7.4/dist/floating-ui.dom.umd.min.js&quot; integrity=&quot;sha384-R7p1RqabZNhI+RdPNIzTouzd/LBVorZ0Tn3ApcogSOk+HF3o+P0HIenrUw/n0MOj&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@floating-ui/core@1.7.3/dist/floating-ui.core.umd.min.js&quot; integrity=&quot;sha384-Q/yMW/r6UZIOlJwJHZcWjbXbicukfsuiwED9BVSZgUZgCxFuI1TOIYZbTZ9rWGLA&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@floating-ui/dom@1.7.4/dist/floating-ui.dom.umd.min.js&quot; integrity=&quot;sha384-R7p1RqabZNhI+RdPNIzTouzd/LBVorZ0Tn3ApcogSOk+HF3o+P0HIenrUw/n0MOj&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
 &lt;script&gt;
 (() =&gt; {
   if (window.FloatingUIDOM == null) {
